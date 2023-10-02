@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-25</title>
+    <style>
+        /* Add your CSS styles here */
+        #train {
+            width: 100px; /* Adjust the width of the train image */
+            position: absolute;
+            top: 50px;
+            left: 0;
+            transition: left 2s linear;
+        }
+    </style>
+</head>
+<body>
+    <img src="train.jpeg" alt="Train" id="train">
+
+
+    <button onclick="startTrain()">Start</button>
+    <button onclick="stopTrain()">Stop</button>
+
+    <script>
+        let trainPosition = 0;
+        let isMoving = false;
+        let trainInterval;
+
+        function startTrain() {
+            if (!isMoving) {
+                isMoving = true;
+                trainInterval = setInterval(moveTrain, 100);
+            }
+        }
+
+        function stopTrain() {
+            isMoving = false;
+            clearInterval(trainInterval);
+        }
+
+        function moveTrain() {
+            trainPosition += 5; // Adjust the speed by changing this value
+            document.getElementById('train').style.left = trainPosition + 'px';
+        }
+    </script>
+</body>
+</html>
